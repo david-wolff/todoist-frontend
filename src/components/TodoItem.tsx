@@ -5,6 +5,7 @@ import {
 import axios from 'axios'
 import Spinner from './Spinner'
 import { useRouter } from 'next/navigation'
+import { dateFormater } from '@/helper/dateFormater'
 
 
 const fetchTodoItem = async (id: string) => {
@@ -15,10 +16,6 @@ const fetchTodoItem = async (id: string) => {
     } catch (error) {
         console.error(error)
     }
-}
-
-const dateFormat = (date: string): String => {
-    return new Date(date).toLocaleString()
 }
 
 type TodoItemProps = {
@@ -48,7 +45,7 @@ export default function TodoItem(params: TodoItemProps) {
     const displayList = !isLoading && !isError
 
     return (
-        <>
+        <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             {isLoading && <Spinner />}
             <div className="flex items-center space-x-4 w-100">
                 {/* <img src="https://via.placeholder.com/50" alt="Placeholder" className="w-12 h-12 rounded-full"> */}
@@ -56,8 +53,8 @@ export default function TodoItem(params: TodoItemProps) {
                     <div>
                         <h3 className="text-lg font-semibold">{item.title}</h3>
                         <p className="text-gray-600">{item.description}</p>
-                        <p className="text-sm text-gray-500">Data de edição: {dateFormat(item.updated_at)}</p>
-                        <p className="text-sm text-gray-500">Data de criação: {dateFormat(item.created_at)}</p>
+                        <p className="text-sm text-gray-500">Data de edição: {dateFormater(item.updated_at)}</p>
+                        <p className="text-sm text-gray-500">Data de criação: {dateFormater(item.created_at)}</p>
                     </div>
                 )}
             </div>
@@ -69,6 +66,6 @@ export default function TodoItem(params: TodoItemProps) {
                     Editar
                 </button>
             </div>
-        </>
+        </div>
     )
 }

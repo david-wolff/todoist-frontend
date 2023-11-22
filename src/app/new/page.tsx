@@ -18,23 +18,14 @@ const fetchTodoItem = async (id: string) => {
   }
 }
 
-export default function Edit() {
-  const { id } = useParams()
-
-  const { data: item, isLoading, isError } = useQuery({
-    queryKey: ['fetchTodoItem'],
-    queryFn: () => fetchTodoItem(parse(id)),
-  });
-
-  const displayForm = !isLoading && !isError && item
-
+export default function New() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="max-w-lg mx-auto">
         <header className="text-center mb-8">
-          <h1 className="text-3xl font-semibold text-gray-800">Editar item</h1>
+          <h1 className="text-3xl font-semibold text-gray-800">Novo item</h1>
         </header>
-        {displayForm && <TodoForm id={parse(id)} title={item.title} description={item.description} isNew={false} />}
+        <TodoForm title="" description="" isNew={true} />
       </div>
     </main>
   )
