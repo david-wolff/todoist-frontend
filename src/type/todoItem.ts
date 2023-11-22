@@ -1,14 +1,14 @@
 
-type TodoItem = {
+export type TodoItemType = {
     id: Number;
-    description: String;
-    title: String;
-    updated_at: String;
-    created_at: String;
+    description: string;
+    title: string;
+    updated_at: string;
+    created_at: string;
     author: Number;
 }
 
-export const todoItemsMock: TodoItem[] = [
+export const todoItemsMock: TodoItemType[] = [
     {
       id: 9,
       description: "Fourth description",
