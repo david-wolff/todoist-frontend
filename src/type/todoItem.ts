@@ -1,11 +1,11 @@
 
 export type TodoItemType = {
-    id: Number;
+    id: number;
     description: string;
     title: string;
     updated_at: string;
     created_at: string;
-    author: Number;
+    author: number;
 }
 
 export const todoItemsMock: TodoItemType[] = [
