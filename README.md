@@ -1,8 +1,19 @@
 # TODOIST frontend
 
-## Getting Started
+## Getting started
 
-Use or install npm version v18.16.0 with nvm:
+Clone the repository
+
+```bash
+git clone git@github.com:antoniomesquita09/todoist-frontend.git
+cd todoist-frontend
+```
+
+---
+
+### Running locally
+
+Use or install node version v18.16.0 with nvm:
 
 ```bash
 nvm use
@@ -18,16 +29,24 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Now the webapp is running on [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Running with docker
+
+Build the docker image from a deployed docker tag from **DockerHub**
+
+```bash
+docker build -t antoniomesquita09/todoist-frontend .
+```
+
+Run the deployed image locally
+
+```bash
+docker run -dp 0.0.0.0:3000:3000 antoniomesquita09/todoist-frontend
+```
+
+Now the webapp is running on [http://localhost:3000](http://localhost:3000)

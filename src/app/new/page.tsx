@@ -25,7 +25,7 @@ export default function New() {
         <header className="text-center mb-8">
           <h1 className="text-3xl font-semibold text-gray-800">Novo item</h1>
         </header>
-        <TodoForm title="" description="" isNew={true} />
+        <TodoForm title="" description="" isNew={true} done={false} />
       </div>
     </main>
   )
