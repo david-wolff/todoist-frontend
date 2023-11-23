@@ -76,6 +76,7 @@ Now the webapp is running on [http://localhost:3000](http://localhost:3000)
 ### Limitações
 
 - Não é possível fazer atualizações parciais das tarefas (método PATCH não implementado)
+- Não foram implementados os erros de validação em campos obrigatórios do formulário.
 - Detalhes do autor não é retornado em nenhum dos endpoints
 - Não existe uma trava de paginação no frontend, ou seja, é possível prosseguir para uma página inexistente
 - Não é possível filtrar/buscar por propriedades diferentes de filter_by_done
