@@ -72,6 +72,7 @@ Now the webapp is running on [http://localhost:3000](http://localhost:3000)
 - Roteamento entre telas
 - *Paginação da listagem de tarefas*
 - *Filtro na listagem de tarefas por tarefa feita/não feita/todas*
+- *Erros de validação de campos obrigatórios no formulário. 
 
 ### Limitações
 
