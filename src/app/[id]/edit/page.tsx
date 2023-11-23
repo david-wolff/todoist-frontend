@@ -1,5 +1,6 @@
 'use client'
 
+import Spinner from "@/components/Spinner"
 import TodoForm from "@/components/TodoForm"
 import { parse } from "@/helper/queryParamParser"
 import { TodoItemType } from "@/type/todoItem"
@@ -34,7 +35,8 @@ export default function Edit() {
         <header className="text-center mb-8">
           <h1 className="text-3xl font-semibold text-gray-800">Editar item</h1>
         </header>
-        {displayForm && <TodoForm id={parse(id)} title={item.title} description={item.description} isNew={false} />}
+        {isLoading && <Spinner />}
+        {displayForm && <TodoForm id={parse(id)} title={item.title} description={item.description} isNew={false} done={item.done} />}
       </div>
     </main>
   )

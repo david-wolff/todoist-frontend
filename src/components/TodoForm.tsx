@@ -11,11 +11,13 @@ type TodoFormProps = {
     title: string
     description: string
     isNew: boolean
+    done: boolean
 }
 
 type TodoBodyType = {
     title: string
     description: string
+    done: boolean
 }
 
 const updateTodo = async (id: string, body: TodoBodyType) => {
@@ -51,6 +53,7 @@ export default function TodoForm(params: TodoFormProps) {
 
     const [title, setTitle] = useState(params.title)
     const [description, setDescription] = useState(params.description)
+    const [done, setDone] = useState(params.done)
 
     const handleClick = (e: any) => {
         e.preventDefault()
@@ -74,7 +77,7 @@ export default function TodoForm(params: TodoFormProps) {
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        updateMutation.mutate({ title, description })
+        updateMutation.mutate({ title, description, done })
     }
 
     const handleClickDelete = (e: any) => {
@@ -105,10 +108,21 @@ export default function TodoForm(params: TodoFormProps) {
                     <textarea
                         id="description"
                         rows={8}
+                        maxLength={255}
                         onChange={(e) => setDescription(e.target.value)}
                         value={description}
-                        className="shadow block p-2.5 w-full text-sm text-gray-700 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Escreva sua descrição aqui"
+                        className="my-4 shadow block p-2.5 w-full text-sm text-gray-700 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Escreva sua descrição aqui"
                     />
+                </div>
+                <div className="flex items-center mb-4">
+                    <input
+                        id="default-checkbox"
+                        type="checkbox"
+                        onChange={(e) => setDone(e.target.checked)}
+                        checked={done}
+                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
+                    />
+                    <label htmlFor="default-checkbox" className="ms-2 text-sm font-medium text-gray-900">Feito</label>
                 </div>
                 <div className="flex items-center justify-between">
                     <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 cursor-pointer" onClick={handleClick}>

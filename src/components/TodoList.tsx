@@ -73,8 +73,6 @@ export default function TodoList() {
     return "undone"
   }
 
-  console.log(filterByDone)
-
   return (
     <>
       <select
@@ -90,9 +88,8 @@ export default function TodoList() {
       <ul className="divide-y divide-gray-300">
         {isLoading ? <><Spinner /><Spinner /><Spinner /><Spinner /></> :
           todoItems?.map((item: TodoItemType) => (
-            <li className="p-4 mb-2 hover:bg-white shadow rounded-lg cursor-pointer" key={`${item.id}`} onClick={(e) => handleClick(e, item.id)}>
+            <li className={`p-4 mb-2 bg-white hover:bg-gray-200 shadow rounded-lg cursor-pointer ${!item.done ? 'opacity-100' : 'opacity-60'}`} key={`${item.id}`} onClick={(e) => handleClick(e, item.id)}>
               <div className="flex items-center space-x-4">
-                {/* <img src="https://via.placeholder.com/50" alt="Placeholder" className="w-12 h-12 rounded-full"> */}
                 <div>
                   <div className='flex align-center justify-items-center'>
                     <h3 className="text-lg font-semibold mr-2">{item.title}</h3>
@@ -102,7 +99,7 @@ export default function TodoList() {
                       </svg>
                     )}
                   </div>
-                  <p className="text-gray-600">{item.description}</p>
+                  <p className="my-4 text-gray-600">{item.description}</p>
                   <p className="text-sm text-gray-500">Data de edição: {dateFormat(item.updated_at)}</p>
                   <p className="text-sm text-gray-500">Data de criação: {dateFormat(item.created_at)}</p>
 
