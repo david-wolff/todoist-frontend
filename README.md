@@ -1,4 +1,4 @@
-# TODOIST frontend
+# TODOIST Frontend
 
 O nosso projeto é um planejador de tarefas que permite criar e organizar suas atividades.
 
@@ -80,3 +80,7 @@ Now the webapp is running on [http://localhost:3000](http://localhost:3000)
 - Não existe uma trava de paginação no frontend, ou seja, é possível prosseguir para uma página inexistente
 - Não é possível filtrar/buscar por propriedades diferentes de filter_by_done
 - Fluxo de autenticação e autorização
+
+### Tecnologias utilizadas
+
+O frontend foi desenvolvido utilizando o framework NextJs e Typescript.
