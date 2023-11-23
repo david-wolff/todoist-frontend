@@ -8,9 +8,9 @@ import Spinner from './Spinner'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
-const fetchAllTodos = async (page: number) => {
+const fetchAllTodos = async (page: number, todoItems: number) => {
   try {
-    const { data } = await axios.get(`http://localhost:8000/todoitem/list?page=${page}&total_items=1`)
+    const { data } = await axios.get(`http://localhost:8000/todoitem/list?page=${page}&total_items=${todoItems}`)
 
     return data
   } catch (error) {
@@ -26,26 +26,26 @@ export default function TodoList() {
   const router = useRouter()
 
   const [page, setPage] = useState(1)
-  // const [totalItems, setTotalItems] = useState(10)
+  const [totalItems, setTotalItems] = useState(10)
 
   const { data: todoItems, isLoading, refetch } = useQuery({
     queryKey: ['fetchAllTodos'],
-    queryFn: () => fetchAllTodos(page),
+    queryFn: () => fetchAllTodos(page, totalItems),
   });
 
   useEffect(() => {
     refetch()
   }, [page])
 
-  // console.log(todoItems)
+  useEffect(() => {
+    refetch()
+    setPage(1)
+  }, [totalItems])
 
   const handleClick = (e: any, id: number) => {
     e.preventDefault()
     router.push(`/${id}`)
   }
-
-
-  console.log(page)
 
   return (
     <>
@@ -79,6 +79,18 @@ export default function TodoList() {
         >
           Next
         </a>
+        <select
+          id="totalItems"
+          onChange={e => setTotalItems(parseInt(e.target.value))}
+          value={totalItems}
+          defaultValue={totalItems}
+          className="ms-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        >
+          <option value={1}>1</option>
+          <option value={5}>5</option>
+          <option value={10}>10</option>
+          <option value={15}>15</option>
+        </select>
       </div>
     </>
   )
