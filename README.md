@@ -1,5 +1,7 @@
 # TODOIST frontend
 
+O nosso projeto é um planejador de tarefas que permite criar e organizar suas atividades.
+
 ## Getting started
 
 Clone the repository
@@ -37,7 +39,7 @@ Now the webapp is running on [http://localhost:3000](http://localhost:3000)
 
 ### Running with docker
 
-Build the docker image from a deployed docker tag from **DockerHub**
+Build the docker image from a deployed docker tag on **DockerHub**
 
 ```bash
 docker build -t antoniomesquita09/todoist-frontend .
@@ -50,3 +52,31 @@ docker run -dp 0.0.0.0:3000:3000 antoniomesquita09/todoist-frontend
 ```
 
 Now the webapp is running on [http://localhost:3000](http://localhost:3000)
+
+---
+
+### Funcionalidades propostas
+
+- Tela de listagem de tarefas
+- Tela de criação de uma tarefa
+- Tela de edição de uma tarefa
+- Botão de remoção de uma tarefa na tela de edição
+- Roteamento entre telas
+
+### Funcionalidades entregues
+
+- Tela de listagem de tarefas
+- Tela de criação de uma tarefa
+- Tela de edição de uma tarefa
+- Botão de remoção de uma tarefa na tela de edição
+- Roteamento entre telas
+- *Paginação da listagem de tarefas*
+- *Filtro na listagem de tarefas por tarefa feita/não feita/todas*
+
+### Limitações
+
+- Não é possível fazer atualizações parciais das tarefas (método PATCH não implementado)
+- Detalhes do autor não é retornado em nenhum dos endpoints
+- Não existe uma trava de paginação no frontend, ou seja, é possível prosseguir para uma página inexistente
+- Não é possível filtrar/buscar por propriedades diferentes de filter_by_done
+- Fluxo de autenticação e autorização
