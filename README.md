@@ -39,10 +39,10 @@ Now the webapp is running on [http://localhost:3000](http://localhost:3000)
 
 ### Running with docker
 
-Build the docker image from a deployed docker tag on **DockerHub**
+Pull the docker image from a deployed docker tag on **DockerHub**
 
 ```bash
-docker build -t antoniomesquita09/todoist-frontend .
+docker image pull antoniomesquita09/todoist-frontend
 ```
 
 Run the deployed image locally
